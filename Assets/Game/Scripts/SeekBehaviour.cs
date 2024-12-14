@@ -23,9 +23,7 @@ public class SeekBehaviour : MonoBehaviour
 private void MoveToTarget(Vector3 target)
 {
     Vector3 direction = (target - transform.position).normalized;
-    direction.y = 0; // Ignore vertical movement
-
-    // Rotate character to face the movement direction
+    direction.y = 0; 
     if (direction != Vector3.zero)
     {
         Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -35,7 +33,7 @@ private void MoveToTarget(Vector3 target)
     // Set Animator parameters
     if (Vector3.Distance(transform.position, target) > 0.5f)
     {
-        animator.SetFloat("Speed", 1f); // Set speed for movement animation
+        animator.SetFloat("Speed", 1f); 
     }
     else
     {

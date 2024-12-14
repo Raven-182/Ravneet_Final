@@ -21,7 +21,7 @@ public class StopMovement : Action
     
         if (agent != null)
         {
-            agent.isStopped = true; // Stop movement
+            agent.isStopped = true;
             return TaskStatus.Success; 
         }
 

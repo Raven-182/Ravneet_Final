@@ -38,7 +38,6 @@ public class CanSeeTargetCondition : Conditional
                 handleColor = Color.red;
                 isPlayerVisible.Value = true;
 
-                // Increment counter only if the player was not visible before
                 if (!wasPlayerPreviouslyVisible)
                 {
                     detectionCounter.Value++;

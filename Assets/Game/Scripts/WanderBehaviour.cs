@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class WanderBehaviour : MonoBehaviour
 {
-    public float wanderRadius = 10f; // Radius for wandering
-    public float wanderInterval = 3f; // Time between target updates
+    public float wanderRadius = 10f; 
+    public float wanderInterval = 3f; 
 
     private Animator animator;
     private Vector3 wanderTarget;
@@ -15,14 +15,14 @@ public class WanderBehaviour : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        wanderTarget = transform.position; // Initialize target at start position
+        wanderTarget = transform.position; 
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
 
-        // Update wander target periodically
+
         if (timer >= wanderInterval)
         {
             wanderTarget = GetRandomPointWithinRadius(transform.position, wanderRadius);
@@ -36,23 +36,23 @@ public class WanderBehaviour : MonoBehaviour
 private void MoveToTarget(Vector3 target)
 {
     Vector3 direction = (target - transform.position).normalized;
-    direction.y = 0; // Ignore vertical movement
+    direction.y = 0; 
 
-    // Rotate character to face the movement direction
+
     if (direction != Vector3.zero)
     {
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f); // Smooth rotation
     }
 
-    // Set Animator parameters
+
     if (Vector3.Distance(transform.position, target) > 0.5f)
     {
-        animator.SetFloat("Speed", 1f); // Set speed for movement animation
+        animator.SetFloat("Speed", 1f); 
     }
     else
     {
-        animator.SetFloat("Speed", 0f); // Stop movement animation when at the destination
+        animator.SetFloat("Speed", 0f); 
     }
 }
 

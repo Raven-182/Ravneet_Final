@@ -10,8 +10,6 @@ public class FinishLine : MonoBehaviour
         if (other.CompareTag("Player"))
         {
          
-
-            // Load the main menu scene
             SceneManager.LoadScene(mainMenuSceneName);
         }
     }
